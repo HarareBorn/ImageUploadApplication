@@ -1,8 +1,29 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Image Upload App";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<form id="uploadForm">
+    <input type="file" name="file" id="fileUpload" accept=".png,.jpeg" />
+    <br />
+    <button type="button" id="upload-file" class="submitBtn" style="margin: auto" data-request-url="@Html.Raw(Url.Action("UploadFile", "Home"))">Upload</button>
+</form>
+
+<table style="margin-top: 40px; border-spacing: 10px; width: 80%" class="table-bordered">
+    <thead>
+        <tr>
+            <td>File Name</td>
+            <td>Image Preview</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+</table>
+
+<!-- Modal -->
+<div id="myModal" class="modalClass">
+    <div style="text-align: center; width: 90%">
+        <img id="createImage" />
+    </div>
+    <div style="margin: 10px 0 0 -100px; text-align: center">
+        <button id="close-modal" class="submitBtn" style="margin: auto">Close</button>
+    </div>
 </div>
