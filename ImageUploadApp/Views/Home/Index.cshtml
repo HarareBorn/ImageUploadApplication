@@ -2,13 +2,14 @@
     ViewData["Title"] = "Image Upload App";
 }
 
+<h2>Image Upload App</h2>
 <form id="uploadForm">
     <input type="file" name="file" id="fileUpload" accept=".png,.jpeg" />
     <br />
-    <button type="button" id="upload-file" class="submitBtn" style="margin: auto" data-request-url="@Html.Raw(Url.Action("UploadFile", "Home"))">Upload</button>
+    <button type="button" id="upload-file" class="submitBtn" style="margin: auto">Upload</button>
 </form>
 
-<table style="margin-top: 40px; border-spacing: 10px; width: 80%" class="table-bordered">
+<table style="margin-top: 40px; border-spacing: 10px; width: 80%" class="table-bordered" id="tbl-body">
     <thead>
         <tr>
             <td>File Name</td>

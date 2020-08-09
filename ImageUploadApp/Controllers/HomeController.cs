@@ -22,7 +22,18 @@ namespace PracticeWebMVC.Controllers
 
         public ActionResult Index()
         {
-            return View(new FilesModel { SystemFileNames = GetLocalFiles() });
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult GetFiles()
+        {
+            var model = new FilesModel
+            {
+                SystemFileNames = GetLocalFiles()
+            };
+
+            return Json(model);
         }
 
         private List<string> GetLocalFiles()
@@ -65,8 +76,7 @@ namespace PracticeWebMVC.Controllers
                 // extract only the filename and add a unique GUID
                 var fileName = Guid.NewGuid() + Path.GetFileName(file.FileName);
                 fileName = fileName.Replace("-", "_");
-                string rootPath = Path.Combine(_webHostEnvironment.WebRootPath, "UploadedFiles");
-                string path = Path.Combine(rootPath, fileName);
+                string path = Path.Combine(_webHostEnvironment.WebRootPath, "UploadedFiles/" + fileName);
 
                 if (model.SystemFileNames.Any(x => x.Substring(36) == file.FileName))
                 {
@@ -82,7 +92,7 @@ namespace PracticeWebMVC.Controllers
                             await file.CopyToAsync(fileStream);
                         }
 
-                        model.Message = "File uploaded successfully!";
+                        model.SystemFileNames = GetLocalFiles();
                         return Json(model);
                     }
                     catch (Exception e)
@@ -100,35 +110,31 @@ namespace PracticeWebMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteFile(string fileName)
+        public IActionResult DeleteFile([FromBody] DeleteModel deleteModel)
         {
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, "UploadedFiles");
-
             try
             {
-                if (System.IO.File.Exists(path + "/" + fileName))
-                {
-                    System.IO.File.Delete(path + "/" + fileName);
+                string path = Path.Combine(_webHostEnvironment.WebRootPath, "UploadedFiles/" + deleteModel.FileName);
 
-                    return Json(new
-                    {
-                        Message = "File deleted!!!"
-                    });
-                }
-                else
+                System.IO.File.SetAttributes(path, FileAttributes.Normal);
+                System.IO.File.Delete(path);
+
+                var model = new FilesModel
                 {
-                    return Json(new
-                    {
-                        Message = "That's odd, we couldn't find the file to be deleted!"
-                    });
-                }
+                    SystemFileNames = GetLocalFiles()
+                };
+
+                return Json(model);
             }
             catch (Exception e)
             {
-                return Json(new
+                var model = new FilesModel
                 {
+                    SystemFileNames = GetLocalFiles(),
                     Message = $"Error occured whilst attempting to delete file!\nError details: {e.Message}"
-                });
+                };
+
+                return Json(model);
             }
         }
     }
