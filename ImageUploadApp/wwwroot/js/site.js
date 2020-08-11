@@ -16,7 +16,11 @@ async function InitialLoad() {
 
     await fetch(url, {
         method: 'GET'
-    }).then(response => response.json()).then(data => UpdateContentsTable(data));
+    }).then(response => response.json())
+        .then(data => UpdateContentsTable(data))
+        .catch(function () {
+            alert("An error has occured and we couldn't load all the files!")
+        });
 }
 
 /**
@@ -46,7 +50,10 @@ async function UploadFile() {
         method: 'POST',
         body: file
     }).then(response => response.json())
-        .then(data => UpdateContentsTable(data));
+        .then(data => UpdateContentsTable(data))
+        .catch(function () {
+            alert("An error has occured and we couldn't upload the file!")
+        });
 }
 
 /**
@@ -66,7 +73,10 @@ async function DeleteFile() {
         },
         body: JSON.stringify(deleteModel)
     }).then(response => response.json())
-        .then(data => UpdateContentsTable(data));
+        .then(data => UpdateContentsTable(data))
+        .catch(function () {
+            alert("An error has occured and we couldn't delete the file!")
+        });
 }
 
 /**
@@ -74,6 +84,7 @@ async function DeleteFile() {
  * @param {object} response reponse object returned from the call
  */
 function UpdateContentsTable(response) {
+    debugger;
     $('#tbl-body').find('tr').not(':first-child').remove();
     var tbl = document.getElementById("tbl-body");
 

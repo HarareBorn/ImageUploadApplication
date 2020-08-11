@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj": {}
+    "C:\\Users\\gorer\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj": {
+    "C:\\Users\\gorer\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj",
+        "projectUniqueName": "C:\\Users\\gorer\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj",
         "projectName": "ImageUploadApp",
-        "projectPath": "C:\\Users\\user\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\obj\\",
+        "projectPath": "C:\\Users\\gorer\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\ImageUploadApp.csproj",
+        "packagesPath": "C:\\Users\\gorer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gorer\\Source\\Repos\\HarareBorn\\ImageUploadApplication\\ImageUploadApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\gorer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -60,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
