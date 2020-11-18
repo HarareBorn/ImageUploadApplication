@@ -1,11 +1,18 @@
 ﻿"use strict";
 
+/**
+ * Shows a preview of the image
+ * @param {string} imageSRC
+ */
 function ShowImagePreview(imageSRC) {
     var imageSrc = "/UploadedFiles/" + imageSRC;
     document.getElementById("createImage").setAttribute("src", imageSrc);
     document.getElementById("myModal").style.display = "block";
 }
 
+/**
+ *Close the modal 
+ */
 function CloseModal() {
     document.getElementById("createImage").removeAttribute("src");
     document.getElementById("myModal").style.display = "none";

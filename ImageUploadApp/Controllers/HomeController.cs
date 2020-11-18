@@ -15,6 +15,10 @@ namespace PracticeWebMVC.Controllers
         private readonly int _fileSizeLimit = 4000000;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeController"/> class.
+        /// </summary>
+        /// <param name="webHostEnvironment">The web host environment.</param>
         public HomeController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
@@ -25,6 +29,10 @@ namespace PracticeWebMVC.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Gets the files.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetFiles()
         {
@@ -36,6 +44,10 @@ namespace PracticeWebMVC.Controllers
             return Json(model);
         }
 
+        /// <summary>
+        /// Gets the local files.
+        /// </summary>
+        /// <returns></returns>
         private List<string> GetLocalFiles()
         {
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "UploadedFiles");
@@ -52,6 +64,11 @@ namespace PracticeWebMVC.Controllers
             return systemFilesList.Where(x => x.Length > 36).OrderBy(x => x).ToList();
         }
 
+        /// <summary>
+        /// Uploads the file.
+        /// </summary>
+        /// <param name="file">The file.</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
@@ -109,6 +126,11 @@ namespace PracticeWebMVC.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes the file.
+        /// </summary>
+        /// <param name="deleteModel">The delete model.</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult DeleteFile([FromBody] DeleteModel deleteModel)
         {
